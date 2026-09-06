@@ -1,20 +1,610 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gemini AI Chatbot</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduTech — Institut Pendidikan Modern Berbasis Kecerdasan Buatan (AI)</title>
+  <meta name="description"
+    content="EduTech adalah institusi pendidikan swasta modern yang mempelopori integrasi Artificial Intelligence dalam kurikulum, mentoring 24/7, dan riset teknologi terdepan." />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <h1>Gemini AI Chatbot</h1>
-    <div id="chat-box" class="chat-box"></div>
-    <form id="chat-form">
-      <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required />
-      <button type="submit">Send</button>
-    </form>
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#beranda" class="brand-logo" id="brand-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <span class="logo-text">Edu<span>Tech</span></span>
+        <span class="logo-badge">AI Campus</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigasi Utama">
+        <a href="#beranda" class="nav-link active">Beranda</a>
+        <a href="#inovasi-ai" class="nav-link">Inovasi AI</a>
+        <a href="#tentang" class="nav-link">Tentang Kami</a>
+        <a href="#program" class="nav-link">Program Studi</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-open-chat-nav">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Tanya AI</span>
+        </button>
+        <a href="#kontak" class="btn btn-primary btn-sm" id="btn-daftar-nav">Daftar Sekarang</a>
+      </div>
+
+      <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Buka Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="beranda">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">✨ Pionir Pendidikan Berbasis Kecerdasan Buatan</span>
+        </div>
+        <h1 class="hero-title">
+          Transformasi Masa Depan Pendidikan dengan Sentuhan <span>Artificial Intelligence</span>
+        </h1>
+        <p class="hero-description">
+          EduTech menghadirkan ekosistem pembelajaran adaptif generasi baru. Kurikulum yang dipersonalisasi oleh AI,
+          pendampingan mentor cerdas 24/7, dan fasilitas riset teknologi untuk mencetak talenta global yang siap
+          memimpin era digital.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#program" class="btn btn-primary btn-lg" id="btn-hero-program">
+            Jelajahi Program Studi
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <button type="button" class="btn btn-glass btn-lg" id="btn-hero-chat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Konsultasi dengan AI
+          </button>
+        </div>
+
+        <div class="hero-features-strip">
+          <div class="strip-item">
+            <span class="strip-icon">🎯</span>
+            <span class="strip-text">Adaptive Learning Model</span>
+          </div>
+          <div class="strip-item">
+            <span class="strip-icon">⚡</span>
+            <span class="strip-text">Real-time Feedback AI</span>
+          </div>
+          <div class="strip-item">
+            <span class="strip-icon">🌐</span>
+            <span class="strip-text">Global Industry Standards</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-card">
+          <img src="./assets/hero-ai.jpg" alt="Laboratorium Kolaborasi EduTech Berbasis AI" class="hero-image"
+            id="hero-main-img" />
+          <div class="floating-badge badge-top-right">
+            <div class="fb-icon">💡</div>
+            <div class="fb-text">
+              <strong>99.4%</strong>
+              <span>Akurasi Rekomendasi Belajar</span>
+            </div>
+          </div>
+          <div class="floating-badge badge-bottom-left">
+            <div class="fb-status-dot"></div>
+            <div class="fb-text">
+              <strong>AI Mentor Active</strong>
+              <span>Merespons pertanyaan siswa 24/7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INOVASI AI DALAM PENDIDIKAN ================= -->
+  <section class="section-padding bg-light" id="inovasi-ai">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">Pilar Teknologi Kami</div>
+        <h2 class="section-title">Bagaimana AI Mengakselerasi Potensi Belajar Anda</h2>
+        <p class="section-subtitle">
+          Bukan sekadar teknologi, AI di EduTech dirancang sebagai akselerator personal untuk memaksimalkan daya serap,
+          kreativitas, dan daya saing global setiap siswa.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <div class="feature-card">
+          <div class="feature-icon icon-blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+          </div>
+          <h3>Adaptive Learning Engine</h3>
+          <p>Materi dan ritme belajar dirancang otomatis mengikuti kurva pemahaman unik Anda menggunakan model machine
+            learning prediktif.</p>
+          <span class="card-link">Personalisasi 100% &rarr;</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-violet">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
+            </svg>
+          </div>
+          <h3>24/7 AI Personal Mentor</h3>
+          <p>Dukungan asisten cerdas yang mampu membedah logika kode, memeriksa esai ilmiah, dan menjawab pertanyaan
+            kompleks kapan pun dibutuhkan.</p>
+          <span class="card-link">Ditenagai AI &rarr;</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-cyan">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+              </polygon>
+            </svg>
+          </div>
+          <h3>Predictive Skill Analytics</h3>
+          <p>Dashboard terintegrasi untuk melacak perkembangan kompetensi kognitif dan teknis siswa, siap
+            direkomendasikan ke mitra industri terkemuka.</p>
+          <span class="card-link">Evaluasi Terukur &rarr;</span>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-emerald">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Immersive Virtual Lab</h3>
+          <p>Lingkungan simulasi berbasis cloud untuk eksperimen komputasi cerdas, neural networks, dan automasi robotik
+            tanpa hambatan perangkat keras.</p>
+          <span class="card-link">Lab Cloud Terpadu &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TENTANG EDUTECH ================= -->
+  <section class="section-padding" id="tentang">
+    <div class="container">
+      <div class="grid-2 align-center">
+        <div class="about-visual">
+          <div class="visual-card-frame">
+            <img src="./assets/about-ai.jpg" alt="Mahasiswa EduTech belajar dengan AI Tutor" class="about-image"
+              id="about-img" />
+            <div class="about-stat-tag">
+              <strong>Terakreditasi Unggul (A)</strong>
+              <span>Badan Akreditasi Nasional - DIKTI RI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-info">
+          <div class="section-tag">Tentang EduTech Institute</div>
+          <h2 class="section-title">Membangun Generasi Inovator Cerdas untuk Era Kecerdasan Artifisial</h2>
+          <p class="about-lead">
+            Didirikan sebagai institusi pendidikan tinggi swasta terdepan, <strong>Institut Teknologi & Edukasi Cerdas
+              EduTech</strong> mengintegrasikan kurikulum ilmiah bereputasi dengan teknologi kecerdasan buatan paling
+            muktahir.
+          </p>
+          <p class="about-desc">
+            Kami percaya bahwa pendidikan terbaik tidak lagi bersifat monolitik satu ukuran untuk semua. Dengan
+            kecerdasan buatan, kami memberdayakan setiap mahasiswa untuk menemukan ritme belajar terbaik, menguasai
+            keterampilan *in-demand*, serta siap memimpin perubahan industri nasional maupun global.
+          </p>
+
+          <div class="about-points">
+            <div class="point-item">
+              <div class="point-check">✓</div>
+              <div>
+                <strong>Kurikulum Link & Match Industri</strong>
+                <p>Bekerja sama dengan 120+ korporasi teknologi ternama.</p>
+              </div>
+            </div>
+            <div class="point-item">
+              <div class="point-check">✓</div>
+              <div>
+                <strong>Dosen & Praktisi Pakar AI</strong>
+                <p>Diajar langsung oleh PhD dan peneliti aktif machine learning.</p>
+              </div>
+            </div>
+            <div class="point-item">
+              <div class="point-check">✓</div>
+              <div>
+                <strong>Inkubasi Startup Berbasis AI</strong>
+                <p>Pendanaan awal dan bimbingan lab inkubasi untuk karya inovatif mahasiswa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAM STUDI ================= -->
+  <section class="section-padding bg-light" id="program">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">Program Unggulan</div>
+        <h2 class="section-title">Pilihan Program Studi Berdaya Saing Tinggi</h2>
+        <p class="section-subtitle">
+          Dirancang untuk menjawab kebutuhan talenta masa depan yang siap mengarungi disrupsi teknologi.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="program-card">
+          <div class="program-badge">Sarjana (S1)</div>
+          <h3>Artificial Intelligence & Data Science</h3>
+          <p>Kuasai *Deep Learning*, *Natural Language Processing*, dan komputasi data skala besar untuk memecahkan
+            problem riil.</p>
+          <ul class="program-list">
+            <li>Machine Learning & Generative AI</li>
+            <li>Big Data Analytics & Pipeline</li>
+            <li>Computer Vision & Ethics AI</li>
+          </ul>
+          <div class="program-footer">
+            <span class="program-duration">⏱ 8 Semester</span>
+            <a href="#kontak" class="btn btn-outline btn-sm">Info Pendaftaran</a>
+          </div>
+        </div>
+
+        <div class="program-card popular">
+          <div class="popular-ribbon">Paling Diminati</div>
+          <div class="program-badge">Sarjana (S1)</div>
+          <h3>Intelligent Software Engineering</h3>
+          <p>Membangun arsitektur perangkat lunak cerdas, *cloud computing*, serta aplikasi modern dengan integrasi AI
+            Copilot terdepan.</p>
+          <ul class="program-list">
+            <li>Fullstack Cloud Development</li>
+            <li>AI-Driven Systems Architecture</li>
+            <li>Cybersecurity & Microservices</li>
+          </ul>
+          <div class="program-footer">
+            <span class="program-duration">⏱ 8 Semester</span>
+            <a href="#kontak" class="btn btn-primary btn-sm">Info Pendaftaran</a>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-badge">Sarjana Terapan (D4)</div>
+          <h3>Robotics & Smart Automation</h3>
+          <p>Fokus rekayasa perangkat keras pintar, IoT industri, robotika otonom, dan implementasi sistem kecerdasan
+            terdistribusi.</p>
+          <ul class="program-list">
+            <li>Autonomous Mobile Robots</li>
+            <li>Industrial IoT & Sensor Fusion</li>
+            <li>Embedded Smart Systems</li>
+          </ul>
+          <div class="program-footer">
+            <span class="program-duration">⏱ 8 Semester</span>
+            <a href="#kontak" class="btn btn-outline btn-sm">Info Pendaftaran</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATISTIK ================= -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="grid-4 stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">15,000+</span>
+          <span class="stat-label">Siswa & Mahasiswa Aktif</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">98.6%</span>
+          <span class="stat-label">Lulusan Terserap Industri &lt; 3 Bulan</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">120+</span>
+          <span class="stat-label">Mitra Korporasi & Riset Global</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Dukungan AI Mentor Aktif</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION BANNER KONSULTASI AI ================= -->
+  <section class="section-padding bg-light" id="ai-assistant">
+    <div class="container">
+      <div class="ai-banner-card">
+        <div class="ai-banner-content">
+          <div class="section-tag">Konsultasi Interaktif 24/7</div>
+          <h2 class="section-title">Punya Pertanyaan Seputar EduTech?</h2>
+          <p class="section-subtitle">
+            Konsultasikan rencana studi Anda kapan saja bersama asisten AI resmi EduTech. Tanyakan kurikulum berbasis kecerdasan buatan, prospek karier lulusan, hingga simulasi beasiswa secara instan.
+          </p>
+          <div class="ai-banner-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-trigger-popup-cta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Mulai Chat dengan AI Assistant</span>
+            </button>
+          </div>
+        </div>
+        <div class="ai-banner-preview">
+          <div class="mock-chat-bubble mock-user">
+            "Apakah kurikulum di EduTech cocok untuk pemula yang belum punya dasar koding?"
+          </div>
+          <div class="mock-chat-bubble mock-bot">
+            "Sangat cocok! EduTech memiliki Adaptive Learning Engine yang menyesuaikan ritme belajar dari dasar, didampingi AI Mentor 24/7. 🚀"
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INFORMASI INSTANSI & KONTAK ================= -->
+  <section class="section-padding" id="kontak">
+    <div class="container">
+      <div class="grid-2">
+        <div class="contact-info-col">
+          <div class="section-tag">Kontak & Lokasi</div>
+          <h2 class="section-title">Mari Terhubung dengan Tim EduTech</h2>
+          <p class="contact-lead">
+            Kunjungi kampus inovasi kami atau hubungi tim konsultan pendidikan kami untuk konsultasi jalur beasiswa dan
+            kurikulum.
+          </p>
+
+          <div class="info-blocks">
+            <div class="info-item">
+              <div class="info-icon">🏢</div>
+              <div>
+                <strong>Kampus Utama (EduTech Innovation Tower)</strong>
+                <p>EduTech Tower Lantai 8–12, Jl. Jendral Sudirman Kav. 45, Senayan, Jakarta Selatan 12190, Indonesia
+                </p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div>
+                <strong>Layanan Telepon & WhatsApp</strong>
+                <p>Telepon: +62 (21) 2985-7890<br>WhatsApp Admisi: +62 811-9988-7766</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div>
+                <strong>Email Resmi</strong>
+                <p>Informasi Umum: <a href="mailto:info@edutech.ac.id">info@edutech.ac.id</a><br>Admisi Baru: <a
+                    href="mailto:admissions@edutech.ac.id">admissions@edutech.ac.id</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">🏛️</div>
+              <div>
+                <strong>Status Legalitas & Akreditasi</strong>
+                <p>SK Kemendikbudristek RI No. 412/E/O/2023 | Terakreditasi Unggul BAN-PT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-col">
+          <div class="form-card">
+            <h3>Konsultasi / Formulir Minat Studi</h3>
+            <p>Tinggalkan kontak Anda, tim konsultan kami akan menghubungi dalam waktu 1x24 jam kerja.</p>
+            <form id="interest-form"
+              onsubmit="event.preventDefault(); alert('Terima kasih! Formulir Anda telah diterima. Tim konsultan EduTech akan segera menghubungi Anda.'); this.reset();">
+              <div class="form-group">
+                <label for="lead-name">Nama Lengkap</label>
+                <input type="text" id="lead-name" placeholder="Contoh: Budi Santoso" required />
+              </div>
+              <div class="form-group">
+                <label for="lead-email">Alamat Email</label>
+                <input type="email" id="lead-email" placeholder="nama@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="lead-phone">Nomor WhatsApp</label>
+                <input type="tel" id="lead-phone" placeholder="08123456789" required />
+              </div>
+              <div class="form-group">
+                <label for="lead-program">Minat Program Studi</label>
+                <select id="lead-program">
+                  <option value="ai-ds">S1 Artificial Intelligence & Data Science</option>
+                  <option value="se">S1 Intelligent Software Engineering</option>
+                  <option value="robotics">D4 Robotics & Smart Automation</option>
+                  <option value="fellowship">Executive EdTech Fellowship</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Kirim Formulir Minat</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo-icon-footer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <span class="logo-text">Edu<span>Tech</span></span>
+        <p class="footer-tagline">
+          Institut Pendidikan Swasta Terdepan Berbasis Kecerdasan Buatan (AI). Mencetak generasi talenta masa depan yang
+          visioner dan adaptif.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Program</h4>
+          <a href="#program">AI & Data Science</a>
+          <a href="#program">Software Engineering</a>
+          <a href="#program">Smart Robotics</a>
+          <a href="#program">Sertifikasi Industri</a>
+        </div>
+        <div class="footer-col">
+          <h4>Inovasi</h4>
+          <a href="#inovasi-ai">Adaptive Engine</a>
+          <a href="#inovasi-ai">AI Mentor</a>
+          <a href="#inovasi-ai">Skill Analytics</a>
+          <a href="#inovasi-ai">Virtual Lab</a>
+        </div>
+        <div class="footer-col">
+          <h4>Informasi</h4>
+          <a href="#tentang">Tentang EduTech</a>
+          <a href="#kontak">Lokasi Kampus</a>
+          <a href="#kontak">Jalur Beasiswa</a>
+          <a href="#kontak">FAQ Pendaftaran</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container fb-flex">
+        <p>&copy; 2026 EduTech Institute (Institut Teknologi & Edukasi Cerdas). Seluruh Hak Cipta Dilindungi.</p>
+        <div class="social-links">
+          <a href="#beranda" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#beranda" aria-label="YouTube">YouTube</a>
+          <a href="#beranda" aria-label="Instagram">Instagram</a>
+          <a href="#beranda" aria-label="GitHub">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING CHAT POPUP WIDGET ================= -->
+  <div class="chat-popup-container" id="chat-popup-container">
+    <!-- Popup Chat Window -->
+    <div class="chat-popup-window" id="chat-popup-window" aria-hidden="true">
+      <!-- Popup Header -->
+      <div class="popup-header">
+        <div class="popup-user-info">
+          <div class="popup-avatar">🤖</div>
+          <div class="popup-user-text">
+            <h4>EduTech AI Assistant</h4>
+            <span class="status-online"><span class="status-dot"></span> Online • Siap Menjawab</span>
+          </div>
+        </div>
+        <div class="popup-actions">
+          <button type="button" class="popup-action-btn" id="btn-clear-chat" title="Hapus Riwayat Percakapan" aria-label="Hapus Riwayat Percakapan">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+          </button>
+          <button type="button" class="popup-close-btn" id="btn-close-chat" aria-label="Tutup Chat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Prompts Chips -->
+      <div class="popup-quick-prompts" id="quick-prompts">
+        <span class="qp-label">Pertanyaan Cepat:</span>
+        <div class="qp-scroll">
+          <button type="button" class="qp-chip" data-prompt="Apa saja program studi yang tersedia di EduTech?">📚 Program Studi</button>
+          <button type="button" class="qp-chip" data-prompt="Bagaimana cara kerja AI dalam membantu proses belajar siswa di EduTech?">💡 Cara Kerja AI</button>
+          <button type="button" class="qp-chip" data-prompt="Bagaimana prosedur dan syarat pendaftaran mahasiswa baru di EduTech?">📝 Pendaftaran</button>
+          <button type="button" class="qp-chip" data-prompt="Berapa estimasi biaya kuliah dan apakah tersedia program beasiswa?">💰 Biaya & Beasiswa</button>
+        </div>
+      </div>
+
+      <!-- Chat Conversation Window -->
+      <div id="chat-box" class="chat-box" aria-live="polite">
+        <div class="message bot">
+Halo! Saya asisten AI resmi **EduTech**. Saya siap membantu menjawab pertanyaan Anda seputar kurikulum berbasis AI, program studi unggulan, fasilitas kampus, maupun pendaftaran mahasiswa baru. Ada yang ingin Anda ketahui?
+        </div>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form id="chat-form" class="chat-form">
+        <input 
+          type="text" 
+          id="user-input" 
+          placeholder="Ketik pertanyaan seputar EduTech..." 
+          autocomplete="off" 
+          required 
+        />
+        <button type="submit" id="btn-submit-chat" aria-label="Kirim Pesan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Floating Trigger Bubble Button -->
+    <button type="button" class="floating-chat-btn" id="floating-chat-btn" aria-label="Buka Chat AI">
+      <div class="fc-pulse"></div>
+      <svg class="icon-chat" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+      <span class="fc-badge">AI</span>
+    </button>
   </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
